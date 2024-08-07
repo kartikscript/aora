@@ -2,6 +2,7 @@ import { View, Text } from 'react-native'
 import React, { useEffect } from 'react'
 import { Slot, SplashScreen, Stack } from 'expo-router'
 import {useFonts} from 'expo-font'
+import GlobalProvider from '../context/GlobalProvider'
 
 
 SplashScreen.preventAutoHideAsync()
@@ -30,10 +31,13 @@ const RootLayout = () => {
   if(!fontsLoaded && !error) return null
   return (
     // <Slot/>//this renders index.tsx as home file OR we can use stack
-
+  <GlobalProvider>
     <Stack>
       <Stack.Screen name='index' options={{headerShown:false}}/>
+      <Stack.Screen name='(auth)' options={{headerShown:false}}/>
+      <Stack.Screen name='(tabs)' options={{headerShown:false}}/>
     </Stack>
+  </GlobalProvider>
   )
 }
 
