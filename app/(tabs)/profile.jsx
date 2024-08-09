@@ -16,7 +16,7 @@ const {user,setUser,setIsLoggedIn} = useGlobalContext()
     await signOut();
     setUser(null)
     setIsLoggedIn(false)
-    router.replace('/sign-in')
+    router.replace('/sign-in') //not used 'push' bcoz after back the page we would have seen profile 
   }
   return (
     <SafeAreaView>

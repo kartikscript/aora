@@ -19,7 +19,7 @@ const index = () => {
           <Text className='text-5xl font-pRegular'>AORA</Text>
           <Link href="/home" className='font-roboto'>go to Home</Link>
           <Image source={icons.home}/>
-          <Image source={{uri:icons.home}}/>
+          {/* <Image source={{uri:icons.home}}/> */}
           <CustomButton
           title='COntinue with email'
           handlePress={()=>router.push('/sign-up')}
