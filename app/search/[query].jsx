@@ -1,11 +1,22 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { useLocalSearchParams } from 'expo-router'
+import useAppwrite from '../../lib/useAppwrite'
+import { searchPosts } from '../../lib/appwrite'
 
 const Search = () => {
+  const {query} = useLocalSearchParams()
+
+  const {data:posts, refetch} = useAppwrite(()=>searchPosts(query))
+
+  useEffect(()=>{
+    refetch()
+  },[query])
   return (
-    <View>
+    <SafeAreaView>
       <Text>Search</Text>
-    </View>
+    </SafeAreaView>
   )
 }
 
